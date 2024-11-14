@@ -39,3 +39,30 @@ body {
   margin: 0 auto;
   padding: 0 0.9375rem;
 }
+//========================================================================================================================================================
+
+.btn {
+	display: -webkit-inline-box;
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	text-align: center;
+	padding: .90625rem 1.48125rem;
+	font-size: 1rem;
+	font-weight: 600;
+	color: #fff;
+	background: #120b8d;
+	border-radius: .1875rem;
+	-webkit-transition: all .4s ease 0s;
+	transition: all .4s ease 0s;
+}
+@media (any-hover: hover){
+	 .btn:hover { 
+	  opacity: 0.7;
+	} 
+}

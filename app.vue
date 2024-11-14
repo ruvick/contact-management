@@ -71,13 +71,7 @@
 
 					<form class="control__form">
 
-						<div class="control__search search-control">
-							<div class="search-control__title">Найти контакт</div>
-							<div class="search-control__form form-search">
-								<input class="form-search__input" v-model="searchQuery" placeholder="Поиск контактов..." />
-								<button type="button" class="form-search__btn btn">Найти</button>
-							</div>
-						</div>
+						<SearchBar @search="handleSearch" />
 
 						<div class="control__add add-control">
 							<div class="add-control__title">Добавить контакт</div>
@@ -101,7 +95,18 @@
 									<label for="input" class="field__label">Email <span>*</span></label>
 								</div>
 
+								<button type="button" class="add-control__btn btn">Добавить</button>
+
 							</div>
+						</div>
+
+						<div class="control__add add-control">
+							<div class="add-control__title">Добавленные контакты</div>
+
+							<div class="add-control__inner">
+								<button type="button" class="add-control__btn btn">Редактировать</button>
+							</div>
+
 						</div>
 
 				</form>
@@ -160,43 +165,6 @@
 			}
 	}
 
-	.search-control {
-
-		&__title {
-			font-size: 1.4375rem;
-			font-weight: 500;
-			&:not(:last-child){
-				margin-bottom: 0.9375rem;
-			}
-		}
-
-		&__form {
-		}
-
-		&__btn {
-		}
-	}
-
-	.form-search {
-		position: relative;
-		background: rgba(2, 0, 32, .03);
-		overflow: hidden;
-		&__input {
-			width: 100%;
-			font-size: 1rem;
-			height: 2.5rem;
-			color: grey;
-			background-color: inherit;
-			padding: 0.3125rem 0.9375rem;
-		}
-		&__btn {
-			position: absolute;
-			top: 50%;
-			right: 0;
-			transform: translateY(-50%);
-		}
-	}
-
 	.add-control {
 
 		&__title {
@@ -213,6 +181,10 @@
 			&:not(:last-child){
 				margin-bottom: 0.625rem;
 			}
+		}
+		&__btn {
+			display: flex;
+			margin-left: auto;
 		}
 	}
 
@@ -470,32 +442,6 @@ textarea.input {
 }
  /* //======================================================================================================================================================== */
  
- .btn {
-	display: -webkit-inline-box;
-	display: -ms-inline-flexbox;
-	display: inline-flex;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	text-align: center;
-	padding: .90625rem 1.48125rem;
-	font-size: 1rem;
-	font-weight: 600;
-	color: #fff;
-	background: #120b8d;
-	border-radius: .1875rem;
-	-webkit-transition: all .4s ease 0s;
-	transition: all .4s ease 0s;
-}
-@media (any-hover: hover){
-	 .btn:hover { 
-	  opacity: 0.7;
-	} 
-}
-
 	.page {
 		&__control {
 			padding: 3.4375rem 0;
