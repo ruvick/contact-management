@@ -12,14 +12,14 @@
 
 	const name = ref('');
 	const phone = ref('');
-	const email = ref(''); // Добавлено поле для email
+	const email = ref(''); 
 	const isEditing = ref(false);
 
 	watch(() => props.currentContact, (newValue) => {
 		if (newValue) {
 			name.value = newValue.name;
 			phone.value = newValue.phone;
-			email.value = newValue.email; // Заполнение поля email при редактировании
+			email.value = newValue.email; 
 			isEditing.value = true;
 		} else {
 			resetForm();
@@ -41,26 +41,25 @@
 	const resetForm = () => {
 		name.value = '';
 		phone.value = '';
-		email.value = ''; // Сброс поля email
+		email.value = ''; 
 		isEditing.value = false;
 	};
 </script>
 
 <template>
-
 	<div class="control__add add-control">
 		<div class="add-control__title">Добавить контакт</div>
 		<form @submit.prevent="submitForm" class="add-control__inner">
 
 			<div class="add-control__field field">
 				<input id="input" class="field__input" name="form[]" autocomplete="off" type="name" placeholder=" " 
-					data-error="Заполните поле" data-required="name" data-validate v-model="name" required>
+					data-error="Заполните поле" data-required="name" data-validate v-model="name" minlength="3" required>
 				<label for="input" class="field__label">Имя <span>*</span></label>
 			</div>
 
 			<div class="add-control__field field">
 				<input id="input" class="field__input" name="tel" autocomplete="off" type="number" placeholder=" " 
-				data-error="Заполните поле" data-required="tel" data-validate v-model="phone" required>
+				data-error="Заполните поле" data-required="tel" data-validate v-model="phone" minlength="10" required>
 				<label for="input" class="field__label">Телефон <span>*</span></label>
 			</div>
 
@@ -74,28 +73,32 @@
 
 		</form>
 	</div>
-
  </template>
  
  <style scoped lang="scss">
-		.add-control {
-			&__title {
-				font-size: 1.4375rem;
-				font-weight: 500;
-				&:not(:last-child){
-					margin-bottom: 0.9375rem;
-				}
+	.add-control {
+		&__title {
+			font-size: 1.4375rem;
+			font-weight: 500;
+			&:not(:last-child){
+				margin-bottom: 0.9375rem;
 			}
-			&__inner {
+			@media (max-width: 48em){
+				  font-size: 1.125rem;
 			}
-			&__field {
-				&:not(:last-child){
-					margin-bottom: 0.625rem;
-				}
+		}
+		&__field {
+			&:not(:last-child){
+				margin-bottom: 0.625rem;
 			}
-			&__btn {
-				display: flex;
-				margin-left: auto;
+		}
+		&__btn {
+			display: flex;
+			margin-left: auto;
+			@media (max-width: 25.875em){
+				  margin: 0;
+					width: 100%;
 			}
+		}
 	}
  </style>

@@ -1,8 +1,5 @@
 <script setup>
-	import { ref, computed, onMounted } from 'vue';
-	import ContactList from '@/components/ContactList.vue';
-	import ContactForm from '@/components/ContactForm.vue';
-	import SearchBar from '@/components/SearchBar.vue';
+	// import { ref, computed, onMounted } from 'vue';
 
 	const contacts = ref([]);
 	const searchQuery = ref('');
@@ -30,7 +27,7 @@
 	const updateContact = (contact) => {
 	if (editingIndex.value !== null) {
 		contacts.value[editingIndex.value] = contact;
-		editingIndex.value = null; // Сбросить индекс после обновления
+		editingIndex.value = null; 
 	} else {
 		addContact(contact);
 	}
@@ -38,8 +35,8 @@
 	};
 
 	const setCurrentContact = (index) => {
-	currentContact.value = { ...contacts.value[index] }; // Копируем контакт для редактирования
-	editingIndex.value = index; // Устанавливаем индекс редактируемого контакта
+	currentContact.value = { ...contacts.value[index] };
+	editingIndex.value = index; 
 	};
 
 	const deleteContact = (index) => {
@@ -55,7 +52,6 @@
 	localStorage.setItem('contacts', JSON.stringify(contacts.value));
 	};
 </script>
-
 
 <template>
 	<div class="wrapper" id="app">
@@ -80,7 +76,7 @@
 						/>
 
 						<div class="control__result result-control">
-							<div class="result-control__title">Добавленные контакты</div>
+							<div class="result-control__title">Контакты</div>
 
 							<ContactList 
 								:contacts="filteredContacts" 
@@ -97,68 +93,48 @@
 
 		</main>
 
-	  <!-- <h1>Управление контактами</h1>
-	  <SearchBar @search="handleSearch" />
-	  <ContactForm 
-		 @addContact="addContact" 
-		 @editContact="updateContact" 
-		 :currentContact="currentContact" 
-	  />
-	  <ContactList 
-		 :contacts="filteredContacts" 
-		 @editContact="setCurrentContact" 
-		 @deleteContact="deleteContact" 
-	  /> -->
-
 	</div>
 	
  </template>
  
  <style lang="scss">
-
 	.control {
-
-			&__container {
+		&__title {
+			font-size: 1.625rem;
+			font-weight: 700;
+			line-height: 2.1875rem;
+			color: #000;
+			text-align: center;
+			&:not(:last-child){
+				margin-bottom: 2.1875rem;
 			}
-
-			&__title {
-				font-size: 1.625rem;
-				font-weight: 700;
-				line-height: 2.1875rem;
-				color: #000;
-				text-align: center;
-				&:not(:last-child){
-					margin-bottom: 2.1875rem;
-				}
+			@media (max-width: 48em){
+				  font-size: 1.4375rem;
 			}
-			&__form {
-				display: flex;
-				flex-direction: column;
-				gap: 2.1875rem;
-				max-width: 50rem;
-				width: 100%;
-				margin: 0 auto;
+			@media (max-width: 25.875em){
+				font-size: 1.25rem;
 			}
-			&__search {
-
-			}
-			&__add {
-			}
-			&__result {
-			}
+		}
+		&__form {
+			display: flex;
+			flex-direction: column;
+			gap: 2.1875rem;
+			max-width: 50rem;
+			width: 100%;
+			margin: 0 auto;
+		}
 	}
 
 	.add-control {
-
 		&__title {
 			font-size: 1.4375rem;
     	font-weight: 500;
 			&:not(:last-child){
 				margin-bottom: 0.9375rem;
 			}
-		}
-
-		&__inner {
+			@media (max-width: 48em){
+				  font-size: 1rem;
+			}
 		}
 		&__field {
 			&:not(:last-child){
@@ -178,22 +154,18 @@
 			&:not(:last-child){
 				margin-bottom: 1.5625rem;
 			}
+			@media (max-width: 48em){
+				  font-size: 1.125rem;
+			}
 		}
 	}
 
-
-
-
-
-
-
-
- /* //======================================================================================================================================================== */
- 
 	.page {
 		&__control {
 			padding: 3.4375rem 0 5.3125rem 0;
+			@media (max-width: 48em){
+				padding: 2.1875rem 0 3.4375rem 0;
+			}
 		}
 	}
-
  </style>

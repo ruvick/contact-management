@@ -20,21 +20,36 @@
 
 <style scoped lang="scss">
 	.header {
-		position: relative;
+		position: fixed;
+		z-index: 50;
+		width: 100%;
 		padding: 0.9375rem 0;
-		box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+		background-color: #fff;
+		box-shadow: 0 0 0.3125rem rgba(0, 0, 0, 0.5);
+		@media (max-width: 48em){
+			padding: 0.9375rem 0;  
+		}
 	}
 	.header__container {
 	}
 	.header__inner {
 		display: flex;
 		align-items: center;
-		gap: 1.5625rem;
+		flex-wrap: wrap;
+		column-gap: 1.5625rem;
+		row-gap: 0.9375rem;
+		@media (max-width: 48em) {
+			  flex-direction: column;
+		}
 	}
 	.header__logo {
 		width: 11.25rem;
 		flex: 0 0 11.25rem;
     height: 1.75rem;
+		@media (max-width: 48em){
+			  flex: 1 1 auto;
+				height: 1.25rem;
+		}
 	}
 	.logo {
 		position: relative;
@@ -52,7 +67,7 @@
 		font-size: 2.25rem;
     font-weight: 700;
     height: 100%;
-    flex: 1 1 auto;
+    flex: 0 1 68%;
     display: flex;
 		flex-direction: column;
     justify-content: center;
@@ -62,6 +77,9 @@
 			font-size: 1.625rem;
 			font-weight: 500;
 			color: #8ed078;
+		}
+		@media (max-width: 48em){
+				display: none;
 		}
 	}
  </style>

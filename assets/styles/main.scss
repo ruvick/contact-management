@@ -29,9 +29,12 @@ body {
   min-width: 0;
 }
 
-// .page {
-// 	padding: 3.4375rem 0;
-// }
+.page {
+	padding-top: 7.1875rem;
+	@media (max-width: 48em){
+		  padding-top: 2.8125rem;
+	}
+}
 
 [class*=__container] {
   max-width: 88.125rem;
@@ -303,10 +306,19 @@ textarea.input {
 	font-size: 1rem;
 	font-weight: 600;
 	color: #fff;
-	background: #120b8d;
+	background-color: #120b8d;
+	// background: linear-gradient(100deg, #8ed078 12.21%, #19b58f);
+	// border: 0.0625rem solid transparent;
 	border-radius: .1875rem;
 	-webkit-transition: all .4s ease 0s;
 	transition: all .4s ease 0s;
+	@media (max-width: 48em){
+		font-size: 0.875rem;
+		padding: 0.625rem 1.25rem;
+	}
+}
+.btn--delete {
+	opacity: 0.7;
 }
 @media (any-hover: hover){
 	 .btn:hover { 

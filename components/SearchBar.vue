@@ -3,6 +3,7 @@
 
 	const emit = defineEmits(['search']);
 	const query = ref('');
+	const errorMessage = ref(''); 
 
 	const search = () => {
 		emit('search', query.value);
@@ -10,16 +11,22 @@
 </script>
 
 <template>
-
-	<div class="search-control">
-		<div class="search-control__title">Найти контакт</div>
-		<div class="search-control__form form-search">
-			<input class="form-search__input" v-model="query" placeholder="Поиск контактов..." />
-			<button type="button" class="form-search__btn btn" @click="search">Найти</button>
-		</div>
-	</div>
-
- </template>
+  <form class="search-control" @submit.prevent="search"> 
+    <div class="search-control__title">Найти контакт</div>
+    <div class="search-control__form form-search">
+      <input 
+        class="form-search__input" 
+        v-model="query" 
+        type="text" 
+        placeholder="Поиск контактов..." 
+        minlength="3" 
+        required 
+      > 
+      <button type="submit" class="form-search__btn btn">Найти</button>
+    </div>
+    <div v-if="errorMessage" class="form-search__error-message">{{ errorMessage }}</div> 
+  </form>
+</template>
  
  <style scoped lang="scss">
 	.search-control {
@@ -29,10 +36,9 @@
 			&:not(:last-child){
 				margin-bottom: 0.9375rem;
 			}
-		}
-		&__form {
-		}
-		&__btn {
+			@media (max-width: 48em){
+				  font-size: 1.125rem;
+			}
 		}
 	}
 
@@ -47,12 +53,22 @@
 			color: grey;
 			background-color: inherit;
 			padding: 0.3125rem 0.9375rem;
+			@media (max-width: 48em){
+				font-size: 0.875rem;
+			}
 		}
 		&__btn {
 			position: absolute;
 			top: 50%;
 			right: 0;
 			transform: translateY(-50%);
+		}
+		&__error-message {
+			position: absolute;
+			font-size: 0.75rem;
+			color: red;
+			margin-top: 0.5rem;
+			margin-left: 0.9375rem;
 		}
 	}
 </style>
