@@ -69,7 +69,7 @@
 
 					<h1 class="control__title">Управление контактами</h1>
 
-					<form class="control__form">
+					<div class="control__form">
 
 						<SearchBar @search="handleSearch" />
 
@@ -79,16 +79,18 @@
 							:currentContact="currentContact" 
 						/>
 
-						<div class="control__add add-control">
-							<div class="add-control__title">Добавленные контакты</div>
+						<div class="control__result result-control">
+							<div class="result-control__title">Добавленные контакты</div>
 
-							<div class="add-control__inner">
-								<button type="button" class="add-control__btn btn">Редактировать</button>
-							</div>
+							<ContactList 
+								:contacts="filteredContacts" 
+								@editContact="setCurrentContact" 
+								@deleteContact="deleteContact" 
+							/>
 
 						</div>
 
-				</form>
+					</div>
 
 				</div>
 			</section>
@@ -112,7 +114,7 @@
 	
  </template>
  
- <style scoped lang="scss">
+ <style lang="scss">
 
 	.control {
 
@@ -142,6 +144,8 @@
 			}
 			&__add {
 			}
+			&__result {
+			}
 	}
 
 	.add-control {
@@ -167,6 +171,28 @@
 		}
 	}
 
+	.result-control {
+
+&__title {
+	font-size: 1.4375rem;
+	font-weight: 500;
+	&:not(:last-child){
+		margin-bottom: 0.9375rem;
+	}
+}
+
+&__inner {
+}
+&__field {
+	&:not(:last-child){
+		margin-bottom: 0.625rem;
+	}
+}
+&__btn {
+	display: flex;
+	margin-left: auto;
+}
+}
 
 
 
@@ -179,7 +205,7 @@
  
 	.page {
 		&__control {
-			padding: 3.4375rem 0;
+			padding: 3.4375rem 0 5.3125rem 0;
 		}
 	}
 

@@ -48,9 +48,9 @@
 
 <template>
 
-	<form @submit.prevent="submitForm" class="control__add add-control">
+	<div class="control__add add-control">
 		<div class="add-control__title">Добавить контакт</div>
-		<div class="add-control__inner">
+		<form @submit.prevent="submitForm" class="add-control__inner">
 
 			<div class="add-control__field field">
 				<input id="input" class="field__input" name="form[]" autocomplete="off" type="name" placeholder=" " 
@@ -72,8 +72,8 @@
 
 			<button type="submit" class="add-control__btn btn">{{ isEditing ? 'Обновить' : 'Добавить' }}</button>
 
-		</div>
-	</form>
+		</form>
+	</div>
 
  </template>
  
