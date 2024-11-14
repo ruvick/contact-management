@@ -172,27 +172,14 @@
 	}
 
 	.result-control {
-
-&__title {
-	font-size: 1.4375rem;
-	font-weight: 500;
-	&:not(:last-child){
-		margin-bottom: 0.9375rem;
+		&__title {
+			font-size: 1.4375rem;
+			font-weight: 500;
+			&:not(:last-child){
+				margin-bottom: 1.5625rem;
+			}
+		}
 	}
-}
-
-&__inner {
-}
-&__field {
-	&:not(:last-child){
-		margin-bottom: 0.625rem;
-	}
-}
-&__btn {
-	display: flex;
-	margin-left: auto;
-}
-}
 
 
 
