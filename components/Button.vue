@@ -12,7 +12,6 @@
 		},
 	});
 
-	// Обработчик клика
 	const handleClick = (event: MouseEvent) => {
 		props.onClick(event);
 	};

@@ -113,3 +113,60 @@ table td {
 	margin: 0;
 }
 
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+	width: 100%;
+	outline: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+input[type=radio] {
+	position: absolute;
+	width: 0;
+	height: 0;
+	opacity: 0;
+	left: 0;
+	top: 0;
+	visibility: hidden;
+}
+
+/* Убираем стрелки у цифрового инпута */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	/* display: none; <- Crashes Chrome on hover */
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+textarea.input {
+	resize: none;
+	padding: 0.3125rem 0.625rem;
+	width: 100%;
+}
+
+/* Стилизация placeholder  */
+::-webkit-input-placeholder {
+	transition: all 0.3s ease 0s;
+	color: rgba(2, 0, 32, 0.3);
+}
+
+::-moz-placeholder {
+	transition: all 0.3s ease 0s;
+	color: rgba(2, 0, 32, 0.3);
+}
+
+/* Firefox 19+ */
+:-moz-placeholder {
+	transition: all 0.3s ease 0s;
+	color: rgba(2, 0, 32, 0.3);
+}
+
+/* Firefox 18- */
+:-ms-input-placeholder {
+	transition: all 0.3s ease 0s;
+	color: rgba(2, 0, 32, 0.3);
+}

@@ -44,7 +44,7 @@
           <Button class="result-control__btn btn--delete" @click="deleteContact(index)">Удалить</Button>
         </div>
       </div>
-      <div v-if="contacts.length === 0" class="no-results-message">Контакты не найдены</div> <!-- Сообщение при отсутствии контактов -->
+      <div v-if="contacts.length === 0" class="no-results-message">Контакты не найдены</div> 
     </transition-group>
   </div>
 </template>

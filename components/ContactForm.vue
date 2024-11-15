@@ -51,25 +51,7 @@
 		<div class="add-control__title">Добавить контакт</div>
 		<form @submit.prevent="submitForm" class="add-control__inner">
 
-			<div class="add-control__field field">
-				<input id="input" class="field__input" name="form[]" autocomplete="off" type="name" placeholder=" "  
-					v-model="name" minlength="3" required>
-				<label for="input" class="field__label">Имя <span>*</span></label>
-			</div>
-
-			<div class="add-control__field field">
-				<input id="input" class="field__input" name="tel" autocomplete="off" type="number" placeholder=" " 
-		      v-model="phone" minlength="10" required>
-				<label for="input" class="field__label">Телефон <span>*</span></label>
-			</div>
-
-			<div class="add-control__field field">
-				<input id="input" class="field__input" name="email" autocomplete="off" placeholder=" " 
-				 v-model="email" type="email" required>
-				<label for="input" class="field__label">Email <span>*</span></label>
-			</div>
-
-			<!-- <Field
+			<Field
 				v-model="name"
 				label="Имя"
 				name="form[]"
@@ -82,7 +64,6 @@
 				v-model="phone"
 				label="Телефон"
 				name="form[]"
-				type="number"
 				placeholder=" "
 				minlength="10"
 				class="add-control__field"
@@ -95,7 +76,7 @@
 				type="email"
 				placeholder=" "
 				class="add-control__field"
-			/> -->
+			/>
 
 			<Button type="submit" class="add-control__btn btn">
       	{{ isEditing ? 'Обновить' : 'Добавить' }}
