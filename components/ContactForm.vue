@@ -52,22 +52,50 @@
 		<form @submit.prevent="submitForm" class="add-control__inner">
 
 			<div class="add-control__field field">
-				<input id="input" class="field__input" name="form[]" autocomplete="off" type="name" placeholder=" " 
-					data-error="Заполните поле" data-required="name" data-validate v-model="name" minlength="3" required>
+				<input id="input" class="field__input" name="form[]" autocomplete="off" type="name" placeholder=" "  
+					v-model="name" minlength="3" required>
 				<label for="input" class="field__label">Имя <span>*</span></label>
 			</div>
 
 			<div class="add-control__field field">
 				<input id="input" class="field__input" name="tel" autocomplete="off" type="number" placeholder=" " 
-				data-error="Заполните поле" data-required="tel" data-validate v-model="phone" minlength="10" required>
+		      v-model="phone" minlength="10" required>
 				<label for="input" class="field__label">Телефон <span>*</span></label>
 			</div>
 
 			<div class="add-control__field field">
 				<input id="input" class="field__input" name="email" autocomplete="off" placeholder=" " 
-				data-error="Неверный Email" data-required="email" data-validate v-model="email" type="email" required>
+				 v-model="email" type="email" required>
 				<label for="input" class="field__label">Email <span>*</span></label>
 			</div>
+
+			<!-- <Field
+				v-model="name"
+				label="Имя"
+				name="form[]"
+				placeholder=" "
+				minlength="3"
+				class="add-control__field"
+			/>
+
+			<Field
+				v-model="phone"
+				label="Телефон"
+				name="form[]"
+				type="number"
+				placeholder=" "
+				minlength="10"
+				class="add-control__field"
+			/>
+
+			<Field
+				v-model="email"
+				label="Email"
+				name="form[]"
+				type="email"
+				placeholder=" "
+				class="add-control__field"
+			/> -->
 
 			<Button type="submit" class="add-control__btn btn">
       	{{ isEditing ? 'Обновить' : 'Добавить' }}
