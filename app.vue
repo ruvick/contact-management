@@ -1,6 +1,6 @@
 <script setup>
 	// import { ref, computed, onMounted } from 'vue';
-
+	import { mockContacts } from '@/data/mockData';
 	const contacts = ref([]);
 	const searchQuery = ref('');
 	const currentContact = ref(null);
@@ -51,6 +51,10 @@
 	const saveContacts = () => {
 	localStorage.setItem('contacts', JSON.stringify(contacts.value));
 	};
+
+	onMounted(() => {
+		contacts.value = mockContacts;
+	});
 </script>
 
 <template>
