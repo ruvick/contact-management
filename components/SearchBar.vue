@@ -22,7 +22,7 @@
         minlength="3" 
         required 
       > 
-      <button type="submit" class="form-search__btn btn">Найти</button>
+			<Button class="form-search__btn btn">Найти</Button>
     </div>
     <div v-if="errorMessage" class="form-search__error-message">{{ errorMessage }}</div> 
   </form>

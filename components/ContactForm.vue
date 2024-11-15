@@ -69,7 +69,9 @@
 				<label for="input" class="field__label">Email <span>*</span></label>
 			</div>
 
-			<button type="submit" class="add-control__btn btn">{{ isEditing ? 'Обновить' : 'Добавить' }}</button>
+			<Button type="submit" class="add-control__btn btn">
+      	{{ isEditing ? 'Обновить' : 'Добавить' }}
+    	</Button>
 
 		</form>
 	</div>

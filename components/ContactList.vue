@@ -40,8 +40,8 @@
         </div>
 
         <div class="result-control__buttons">
-          <button class="result-control__btn btn" @click="editContact(index)">Редактировать</button>
-          <button class="result-control__btn btn btn--delete" @click="deleteContact(index)">Удалить</button>
+					<Button class="result-control__btn btn" @click="editContact(index)">Редактировать</Button>
+          <Button class="result-control__btn btn--delete" @click="deleteContact(index)">Удалить</Button>
         </div>
       </div>
       <div v-if="contacts.length === 0" class="no-results-message">Контакты не найдены</div> <!-- Сообщение при отсутствии контактов -->
