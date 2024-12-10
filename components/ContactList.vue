@@ -1,4 +1,5 @@
 <script setup>
+
 	import { defineProps } from 'vue';
 
 	const props = defineProps({
@@ -17,6 +18,7 @@
 	const deleteContact = (index) => {
 		emit('deleteContact', index);
 	};
+
 </script>
 
 <template>
